@@ -20,10 +20,10 @@ const navItems: { id: SectionName, label: string }[] = [
 
 export default function Navigation({ onNavigate, variant = 'page-style' }: NavigationProps) {
   const navClassName = clsx(
-    'p-4 flex gap-2', // Base classes for both variants
+    'p-4 flex gap-2 font-bold', // Base classes for both variants
     {
-      'flex-row': variant === 'home-style', // Home variant is a horizontal row
-      'flex-col border-2 border-orange-500 rounded-lg h-screen w-52': variant === 'page-style', // Page variant is a vertical column with styles
+      'flex-col items-center': variant === 'home-style',
+      'flex-col border-2 border-orange-500 rounded-lg w-52 mt-10 text-xl gap-6': variant === 'page-style',
     }
   );
 
@@ -33,7 +33,7 @@ export default function Navigation({ onNavigate, variant = 'page-style' }: Navig
       {navItems.map((item) => (
         <button
           key={item.id}
-          className="p-3 bg-gray-200 hover:bg-gray-300 rounded-md text-left"
+          className="hover:bg-gray-300 rounded-md text-left"
           onClick={() => onNavigate(item.id)}
         >
           {item.label}
