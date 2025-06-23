@@ -1,0 +1,5 @@
+23 June 2025
+- replicate About animation to other page-style components; tweak animations as appropriate
+- figure out bug - home button not making nav items animate on Home component correctly
+- Services component - plan structure and look into react bits or whatever other animation packages that can be leveraged
+    - same for other components

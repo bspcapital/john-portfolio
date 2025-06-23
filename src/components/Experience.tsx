@@ -1,15 +1,22 @@
 import Navigation, { SectionName } from './Navigation';
+import { motion } from 'framer-motion';
 
 interface PageProps {
   onNavigate: (page: SectionName) => void;
+  activePage: SectionName;
 }
 
-export default function Experience({ onNavigate }: PageProps) {
+export default function Experience({ onNavigate, activePage }: PageProps) {
   return (
     <div className="px-4 mt-10 flex gap-8">
               <div className="flex flex-col mt-5">
-                <h1 className="mt-10 text-4xl font-bold ml-3">Experience</h1>
-              <Navigation onNavigate={onNavigate} variant="page-style" />
+                <motion.h1 
+              layoutId="experience-header-transition"
+              className="mt-10 text-4xl font-bold ml-3"
+            >
+              Experience
+            </motion.h1>
+              <Navigation onNavigate={onNavigate} variant="page-style" activePage={activePage}/>
               </div>
                 <div className="mt-24 max-w-5xl mx-40">
                   <p className="mt-2">
