@@ -1,5 +1,7 @@
 import Navigation, { SectionName } from './Navigation';
+import ParallaxCards from './ParallaxCards';
 import { motion } from 'framer-motion';
+import { useState} from 'react';
 
 interface PageProps {
   onNavigate: (page: SectionName) => void;
@@ -7,7 +9,12 @@ interface PageProps {
 }
 
 export default function Experience({ onNavigate, activePage }: PageProps) {
+  const [isPCardsOpen, setIsPCardsOpen] = useState(false);
+
+  const openCards = () => setIsPCardsOpen(true);
+  const closeCards = () => setIsPCardsOpen(false);
   return (
+    <>
     <div className="px-4 mt-10 flex gap-8">
               <div className="flex flex-col mt-5">
                 <motion.h1 
@@ -18,11 +25,11 @@ export default function Experience({ onNavigate, activePage }: PageProps) {
             </motion.h1>
               <Navigation onNavigate={onNavigate} variant="page-style" activePage={activePage}/>
               </div>
-                <div className="mt-24 max-w-5xl mx-40">
-                  <p className="mt-2">
-                    User will just see a resume style list of all the shit I've done
-                  </p>
-                </div>
+                  <button onClick={openCards}>
+                    Open Parallax Window
+                  </button>
+                  <ParallaxCards isOpen={isPCardsOpen} onClose={closeCards}/>
     </div>  
+    </>
   );
 }

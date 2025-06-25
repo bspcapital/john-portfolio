@@ -1,5 +1,6 @@
 import Navigation, { SectionName } from './Navigation';
 import { motion } from 'framer-motion';
+import Folder from './Folder';
 
 interface PageProps {
   onNavigate: (page: SectionName) => void;
@@ -23,6 +24,11 @@ export default function Services({ onNavigate, activePage }: PageProps) {
                Gonna have three boxes: Bots, Web3, and Web Dev. 
                User will be able to click into each of these which loads a window explaining what I can do in relation to the topic, and what I've done to prove im capable.
               </p>
+              <div className="mt-24 max-w-5xl mx-100 p-10">
+              <Folder size={2} color="#5227FF" className="custom-folder" />
+              <Folder size={2} color="#5227FF" className="custom-folder" />
+              <Folder size={2} color="#5227FF" className="custom-folder" />
+              </div>
             </div>
       </div>  
   );
